@@ -1,3 +1,4 @@
+/*Configurações gerais*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
@@ -19,6 +20,8 @@
     height: 100vh;
     margin: 0 auto;
 }
+
+/** Header */
 
 .container header {
     background-color: var(--secondary-color);
@@ -72,6 +75,8 @@
     height: 20px;
 }
 
+/** Main Section */
+
 .container .main-section {
     font-family: "Poppins", sans-serif;
     width: 100%;
@@ -105,13 +110,14 @@
     font-size: 1.1rem;
     color: var(--text-color);
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 .container .main-section .text-content .main-button {
     width: fit-content;
     display: flex;
     align-items: center;
-    background-color: #061425;
+    background-color: var(--secondary-color);
     color: var(--text-color);
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -142,6 +148,63 @@
     width: 100%;
     height: auto;
 }
+
+.container .especialidades {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.container .especialidades h1, p {
+    text-align: center;
+}
+
+.container .especialidades h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.container .especialidades h1 span {
+    color: var(--primary-color);
+}
+
+.container .especialidades p {
+    width: 80%;
+    font-size: 1.1rem;
+    color: var(--hover-color);
+    margin-bottom: 1rem;
+}
+
+.container .especialidades .main-button {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    gap: 0.2rem;
+    transition: all 0.3s ease;
+}
+
+.container .especialidades .main-button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    box-shadow: var(--hover-shadow);
+    transform: scale(1.05);
+}
+
+.container .especialidades .main-button img {
+    width: 20px;
+    height: 20px;
+}
+
 
 /** Responsive Design */
 
