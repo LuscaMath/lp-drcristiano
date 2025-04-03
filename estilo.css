@@ -205,6 +205,46 @@
     height: 20px;
 }
 
+.container .especialidades .especialidades-items {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.container .especialidades .especialidades-items .especialidade-item {
+    width: 30%;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    padding: 2rem;
+    gap: 0.5rem;
+}
+
+.container .especialidades .especialidades-items .especialidade-item h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.container .especialidades .especialidades-items .especialidade-item p {
+    font-size: 1rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.container .especialidades .especialidades-items .especialidade-item img {
+    width: 50px;
+    height: 50px;
+}
+
 
 /** Responsive Design */
 
