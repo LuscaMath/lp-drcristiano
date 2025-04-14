@@ -1,4 +1,4 @@
-/*Configurações gerais*/
+/*Configuraï¿½ï¿½es gerais*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
@@ -84,7 +84,6 @@
     align-items: center;
     justify-content: center;
     background-color: var(--primary-color);
-
 }
 
 .container .main-section .text-content {
@@ -216,8 +215,11 @@
 }
 
 .container .especialidades .especialidades-items .especialidade-item {
-    width: 30%;
-    background-color: var(--secondary-color);
+    width: 25%;
+    height: 400px;
+    background: url(./assets/teste.png);
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -227,24 +229,137 @@
     transition: all 0.3s ease;
     padding: 2rem;
     gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.container .especialidades .especialidades-items .especialidade-item:nth-child(2) {
+    background: url(./assets/teste2.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.container .especialidades .especialidades-items .especialidade-item:nth-child(3) {
+    background: url(./assets/teste3.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.container .especialidades .especialidades-items .especialidade-item:nth-child(4) {
+    background: url(./assets/teste4.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.container .especialidades .especialidades-items .especialidade-item:nth-child(5) {
+    background: url(./assets/teste5.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.container .especialidades .especialidades-items .especialidade-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.container .especialidades .especialidades-items .especialidade-item:hover::before {
+    background: rgba(0, 0, 0, 0.9); /* Darker overlay on hover */
+}
+
+.container .especialidades .especialidades-items .especialidade-item h2,
+.container .especialidades .especialidades-items .especialidade-item p {
+    position: relative;
+    z-index: 2;
+    color: #ffffff; /* Ensure text is readable */
+    text-align: center;
 }
 
 .container .especialidades .especialidades-items .especialidade-item h2 {
-    font-size: 1.5rem;
-    color: var(--text-color);
+    font-size: 2rem;
+    color: var(--primary-color);
 }
 
 .container .especialidades .especialidades-items .especialidade-item p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--text-color);
     text-align: center;
 }
 
-.container .especialidades .especialidades-items .especialidade-item img {
-    width: 50px;
-    height: 50px;
+/** Responsive Design for Main Section */
+
+@media (max-width: 1024px) {
+    .container .main-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .container .main-section .text-content {
+        width: 90%;
+        align-items: center;
+    }
+
+    .container .main-section .img-content {
+        width: 80%;
+        margin-top: 1rem;
+    }
+
+    .container .especialidades .especialidades-items .especialidade-item {
+        width: 45%;
+        height: 300px;
+    }
 }
 
+@media (max-width: 768px) {
+    .container .main-section .text-content h1 {
+        font-size: 2rem;
+    }
+
+    .container .main-section .text-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .container .main-section .text-content p {
+        font-size: 1rem;
+    }
+
+    .container .main-section .text-content,
+    .container .main-section .img-content {
+        width: 100%;
+    }
+
+    .container .especialidades .especialidades-items .especialidade-item {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container .main-section .text-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .container .main-section .text-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .container .main-section .text-content p {
+        font-size: 0.9rem;
+    }
+
+    .container .especialidades .especialidades-items .especialidade-item {
+        width: 100%;
+        height: 200px;
+    }
+}
 
 /** Responsive Design */
 
