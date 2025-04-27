@@ -75,6 +75,37 @@
     height: 20px;
 }
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Transições suaves */
+.menu-toggle span {
+    transition: all 0.3s ease;
+}
+
 /** Main Section */
 
 .container .main-section {
@@ -84,6 +115,8 @@
     align-items: center;
     justify-content: center;
     background-color: var(--primary-color);
+    padding: 2rem;
+    gap: 2rem;
 }
 
 .container .main-section .text-content {
@@ -139,16 +172,20 @@
 }
 
 .container .main-section .img-content {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     width: 38%;
 }
 
 .container .main-section .img-content img {
+    border-radius: 15px;
     width: 100%;
     height: auto;
 }
 
 .container .especialidades {
+    font-family: "Poppins", sans-serif;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -176,6 +213,7 @@
     font-size: 1.1rem;
     color: var(--hover-color);
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .container .especialidades .main-button {
@@ -258,6 +296,12 @@
     background-position: center;
 }
 
+.container .especialidades .especialidades-items .especialidade-item:nth-child(6) {
+    background: url(./assets/teste6.png);
+    background-size: cover;
+    background-position: center;
+}
+
 .container .especialidades .especialidades-items .especialidade-item::before {
     content: '';
     position: absolute;
@@ -293,75 +337,412 @@
     text-align: center;
 }
 
-/** Responsive Design for Main Section */
+/** Sobre Section */
+
+.container .sobre {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--primary-color);
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+    height: fit-content;
+    padding: 1rem;
+}
+
+.container .sobre h1 {
+    color: var(--text-color);
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.container .sobre .sobre-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.container .sobre .sobre-content .sobre-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 40%;
+}
+
+.container .sobre .sobre-content .sobre-text .main-button {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    gap: 0.2rem;
+    transition: all 0.3s ease;
+}
+
+.container .sobre .sobre-content .sobre-text .main-button:hover {
+    background-color: var(--text-color);
+    color: #333333;
+    box-shadow: var(--hover-shadow);
+    transform: scale(1.05);
+}
+
+.container .sobre .sobre-content .sobre-text .main-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.container .sobre .sobre-content .sobre-text h1, p {
+    text-align: left;
+}
+
+.container .sobre .sobre-content .sobre-text p {
+    font-size: 1.2rem;
+    color: var(--hover-color);
+    margin-bottom: 1rem;
+}
+
+.container .sobre .sobre-content .sobre-img {
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 30%;
+}
+
+.container .sobre .sobre-content .sobre-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/** Feedback Section */
+
+.feedbacks {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--text-color);
+    color: var(--hover-color);
+    font-family: "Poppins", sans-serif;
+}
+
+.feedbacks h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Nova camada para controlar o overflow */
+.carousel-wrapper {
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.carousel-item p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.carousel-item span {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--hover-color);
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.carousel-controls button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-controls button:hover {
+    background-color: var(--hover-color);
+}
+
+.feedbacks .main-button {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    margin: 3rem auto 0 auto;
+}
+
+.feedbacks .main-button:hover {
+    background-color: var(--text-color);
+    color: #333333;
+    box-shadow: var(--hover-shadow);
+    transform: scale(1.05);
+}
+
+.feedbacks .main-button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsivo para Feedback Section */
 
 @media (max-width: 1024px) {
-    .container .main-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem;
-    }
-
-    .container .main-section .text-content {
-        width: 90%;
-        align-items: center;
-    }
-
-    .container .main-section .img-content {
+    .carousel-wrapper {
         width: 80%;
-        margin-top: 1rem;
     }
 
-    .container .especialidades .especialidades-items .especialidade-item {
-        width: 45%;
-        height: 300px;
+    .carousel-item p {
+        font-size: 1rem;
+    }
+
+    .carousel-item span {
+        font-size: 0.9rem;
+    }
+
+    .carousel-controls button {
+        font-size: 1.2rem;
+        padding: 0.4rem 0.8rem;
     }
 }
 
 @media (max-width: 768px) {
-    .container .main-section .text-content h1 {
+    .feedbacks h1 {
         font-size: 2rem;
     }
 
-    .container .main-section .text-content h2 {
-        font-size: 1.3rem;
+    .carousel-wrapper {
+        width: 100%;
     }
 
-    .container .main-section .text-content p {
+    .carousel {
+        will-change: transform;
+        touch-action: pan-y;
+    }
+
+    .carousel-item p {
+        font-size: 0.9rem;
+    }
+
+    .carousel-item span {
+        font-size: 0.8rem;
+    }
+
+    .carousel-controls button {
         font-size: 1rem;
-    }
-
-    .container .main-section .text-content,
-    .container .main-section .img-content {
-        width: 100%;
-    }
-
-    .container .especialidades .especialidades-items .especialidade-item {
-        width: 100%;
-        height: 250px;
+        padding: 0.3rem 0.6rem;
     }
 }
 
 @media (max-width: 480px) {
-    .container .main-section .text-content h1 {
+    .feedbacks h1 {
         font-size: 1.8rem;
     }
 
-    .container .main-section .text-content h2 {
-        font-size: 1.2rem;
-    }
-
-    .container .main-section .text-content p {
-        font-size: 0.9rem;
-    }
-
-    .container .especialidades .especialidades-items .especialidade-item {
+    .carousel-item {
         width: 100%;
-        height: 200px;
+    }
+
+    .carousel-item p {
+        font-size: 0.8rem;
+    }
+
+    .carousel-item span {
+        font-size: 0.7rem;
+    }
+
+    .carousel-controls button {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.5rem;
     }
 }
 
-/** Responsive Design */
+/* Contato Section */
+.container .contato {
+    font-family: "Poppins", sans-serif;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    width: 100%;
+    height: fit-content;
+    flex-wrap: wrap; /* Added for responsiveness */
+}
+
+.container .contato .titles-content {
+    width: 40%;
+    text-align: center; /* Center text for smaller screens */
+}
+
+.container .contato .titles-content h2 {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    margin: 1rem 0;
+}
+
+.container .contato .btn-content .main-button {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    background-color: var(--text-color);
+    color: var(--hover-color);
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.container .contato .btn-content .main-button:hover {
+    background-color: var(--text-color);
+    color: #333333;
+    box-shadow: var(--hover-shadow);
+    transform: scale(1.05);
+}
+
+.container .contato .btn-content .main-button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Footer */
+
+.footer {
+    background: var(--secondary-color);
+    color: #ccc;
+    padding: 20px;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.footer-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer-social-icons a img {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.footer-about {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.footer-about .logo {
+    width: 250px;
+}
+
+.footer-contact,
+.footer-locations {
+    flex: 1;
+}
+
+.footer-contact h4,
+.footer-locations h4 {
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+.footer-contact .icon,
+.footer-locations .icon {
+    width: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    border-top: 1px solid var(--text-color);
+    padding-top: 10px;
+}
+
+.privacy-policy {
+    display: block;
+    margin-top: 5px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.whatsapp-floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-floating img {
+    width: 30px;
+}
+
+/* Responsivo Geral */
 
 @media (max-width: 1024px) {
     .container header {
@@ -389,11 +770,103 @@
         width: 80%;
         margin-top: 1rem;
     }
+
+    .container .main-section .text-content p {
+        text-align: center;
+    }
+
+    .container .especialidades .especialidades-items .especialidade-item {
+        width: 45%;
+        height: 300px;
+    }
+
+    .container .sobre h1 {
+        font-size: 2.5rem;
+    }
+
+    .container .sobre .sobre-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .container .sobre .sobre-content .sobre-text {
+        width: 80%;
+        text-align: center;
+    }
+
+    .container .sobre .sobre-content .sobre-img {
+        width: 60%;
+    }
+
+    .container .contato {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .container .contato .titles-content {
+        width: 80%;
+    }
+
+    .container .contato .titles-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .footer-main {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-about,
+    .footer-contact,
+    .footer-locations {
+        flex: none;
+        width: 100%;
+    }
+
+    .footer-about .logo {
+        width: 200px;
+    }
 }
 
 @media (max-width: 768px) {
-    .container header img {
-        width: 200px;
+    .container header {
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .container header nav {
+        position: absolute;
+        top: 150px;
+        right: 0;
+        background-color: var(--secondary-color);
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+
+    .container header nav.active {
+        height: 300px; /* Altura quando aberto */
+    }
+
+    .container header nav a {
+        margin: 1rem 0;
+    }
+
+    .header-button {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
     }
 
     .container .main-section .text-content h1 {
@@ -411,6 +884,77 @@
     .container .main-section .text-content,
     .container .main-section .img-content {
         width: 100%;
+    }
+
+    .container .especialidades .especialidades-items .especialidade-item {
+        width: 100%;
+        height: 250px;
+    }
+
+    .container .especialidades .especialidades-items .especialidade-item h2 {
+        font-size: 1.5rem;
+    }
+
+    .container .especialidades .especialidades-items .especialidade-item p {
+        font-size: 0.8rem;
+    }
+
+    .container .especialidades h1 {
+        font-size: 2.2rem;
+    }
+
+    .container .especialidades p {
+        font-size: 0.8rem;
+    }
+
+    .container .sobre .sobre-content .sobre-text h1, p {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .container .sobre .sobre-content .sobre-text {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container .sobre .sobre-content .sobre-text p {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .container .sobre .sobre-content .sobre-img {
+        width: 80%;
+    }
+
+    .container .contato .titles-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .container .contato .btn-content .main-button {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .footer-main {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-about,
+    .footer-contact,
+    .footer-locations {
+        flex: none;
+        width: 100%;
+    }
+
+    .footer-about .logo {
+        width: 150px;
     }
 }
 
@@ -430,15 +974,96 @@
     }
 
     .container .main-section .text-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .container .main-section .text-content h2 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .container .main-section .text-content p {
+        font-size: 0.8rem;
+    }
+
+    .container .especialidades .especialidades-items .especialidade-item {
+        width: 100%;
+        height: 200px;
+    }
+
+    .container .sobre .sobre-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .container .sobre .sobre-content .sobre-text p {
         font-size: 0.9rem;
+    }
+
+    .container .sobre .sobre-content .sobre-text {
+        width: 100%;
+    }
+
+    .container .sobre .sobre-content .sobre-img {
+        width: 100%;
+    }
+
+    .container .contato {
+        padding: 1rem;
+    }
+
+    .container .contato .titles-content {
+        width: 100%;
+    }
+
+    .container .contato .titles-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .container .contato .btn-content .main-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .footer-top {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .footer-main {
+        text-align: center;
+    }
+
+    .footer-main .footer-contact p {
+        font-size: 1.2rem;
+    }
+
+    .footer-main .footer-locations p {
+        font-size: 1.2rem;
+    }
+
+    .footer-about .logo {
+        width: 150px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+
+    .footer-bottom a {
+        font-size: 0.7rem;
+    }
+
+    .carousel-wrapper {
+        width: 100%;
     }
 }
 
