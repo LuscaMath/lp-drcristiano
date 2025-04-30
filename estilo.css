@@ -575,7 +575,8 @@
     }
 
     .carousel-item p {
-        font-size: 0.8rem;
+        padding: 1.5rem;
+        font-size: 1rem;
     }
 
     .carousel-item span {
@@ -841,7 +842,7 @@
 
     .container header nav {
         position: absolute;
-        top: 150px;
+        top: 180px;
         right: 0;
         background-color: var(--secondary-color);
         flex-direction: column;
